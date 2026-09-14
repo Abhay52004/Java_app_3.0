@@ -20,7 +20,7 @@ pipeline{
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
             userRemoteConfigs: [[url: 'https://github.com/Abhay52004/Java_app_3.0.git']]])
     }
-}
+
         }
          stage('Unit Test maven'){
          
