@@ -15,14 +15,12 @@ pipeline{
 
     stages{
          
-        stage('Git Checkout'){
-                    when { expression {  params.action == 'create' } }
-            steps{
-            gitCheckout(
-                branch: "main",
-                url: "https://github.com/praveen1994dec/Java_app_3.0.git"
-            )
-            }
+       stage('Git Checkout') {
+    steps {
+        checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
+            userRemoteConfigs: [[url: 'https://github.com/Abhay52004/Java_app_3.0.git']]])
+    }
+}
         }
          stage('Unit Test maven'){
          
