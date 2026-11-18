@@ -1,8 +1,20 @@
 management:
-  endpoint:
+  endpoints:
     web:
       exposure:
-        inculde: info, refresh, keepalive, health
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: minikube-sample
+
 logging:
   level:
     org.springframework.cloud.kubernetes: DEBUG
